@@ -1,0 +1,23 @@
+Demo 1 Steps
+------------
+1. Create interface -> \Interfaces\IProcessor.al
+2. Create codeunits to implement new interface
+   [Distinct Implementation for new interface]
+    -> \Codeunits\OrderProcessor.al
+    -> \Codeunits\AlertProcessor.al
+    -> \Codeunits\PartnerRateProcessor.al
+3. Create enum that implements new interface.
+   [Decides which codeunit gets executed]
+    -> \enum\ProcessorHandler.al
+4. Create new table to support entities and implementer codeunits
+    -> \Tables\RecordProcessor.al
+    Schema:
+    TableId     ProcessorType       CodeunitNo    
+    -------     -----------         -----------
+    70501       0 (Order)           70501       
+    70502       20 (Alert)          70502
+    70503       30 (PartnerRate)    70503
+5. Create codeunit to determine which codeunit gets executed
+    -> \Codeunits\ProcessorFactory.al
+6. Load table at #4 either via an action on a extension setup table or during upgrade 
+    -> part of OnUpgradePerCompany in a codeunit of sub-type Upgrade
