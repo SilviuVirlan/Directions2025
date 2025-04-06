@@ -10,22 +10,22 @@ codeunit 70500 "ProcessorFactory"
 
     procedure GetProcessingHandler(pVariant: Variant) ProcessingHandler: Interface IProcessor;
     var
-        RecProcessorSetup: Record RecordProcessor;
+        RecProcessor: Record RecordProcessor;
     begin
-        if FindProcessor(pVariant, RecProcessorSetup) then
-            ProcessingHandler := RecProcessorSetup.CodeunitNo
+        if FindProcessor(pVariant, RecProcessor) then
+            ProcessingHandler := RecProcessor.CodeunitNo
         else
             Error(ProcessorCodeunitMissingErr, pVariant);
     end;
 
-    local procedure FindProcessor(pV: Variant; var pProcessorSetup: Record RecordProcessor): Boolean
+    local procedure FindProcessor(pV: Variant; var pProcessor: Record RecordProcessor): Boolean
     var
         RecRef: RecordRef;
     begin
         if not pV.IsRecord() then exit(false);
         RecRef.GetTable(pV);
-        pProcessorSetup.SetRange(TableId, RecRef.Number);
-        if pProcessorSetup.FindFirst() then
+        pProcessor.SetRange(TableId, RecRef.Number);
+        if pProcessor.FindFirst() then
             exit(true);
     end;
 

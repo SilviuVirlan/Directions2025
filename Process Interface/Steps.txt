@@ -1,5 +1,11 @@
+Background
+==========
+1. Data arriving in BC via 3 api's is stored in 3 tables.
+2. We want to standardize the processing of these 3 records as following:
+- create an interface IProcessor with one method Process() and implement it in 3 codeunits, one for each type of records
+
 Demo 1 Steps
-------------
+============
 1. Create interface -> \Interfaces\IProcessor.al
 2. Create codeunits to implement new interface
    [Distinct Implementation for new interface]

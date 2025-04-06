@@ -111,6 +111,19 @@ table 70501 Order
             Clustered = true;
         }
     }
+
+    internal procedure AddDemoData()
+    var
+        Order: Record Order;
+    begin
+        Order."Order No" := 1;
+        Order."Customer No" := 'CUST000' + Order."Order No".ToText();
+        Order."FSL Code" := 'FSL000' + Order."Order No".ToText();
+        Order."Order Date" := 20250408D;
+        Order."Processing Status" := Order."Processing Status"::Pending;
+        Order.Insert();
+    end;
+
     procedure SetStatusTo(NewStat: Enum ProcessingStatus)
     begin
         "Processing Status" := NewStat;

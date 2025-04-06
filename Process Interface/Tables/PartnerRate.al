@@ -124,6 +124,16 @@ table 70503 PartnerRate
         }
     }
 
+    internal procedure AddDemoData()
+    var
+        PartnerRate: Record PartnerRate;
+    begin
+        PartnerRate.CustomerNo := 'CUST001';
+        PartnerRate.VendorNo := 'VEND001';
+        PartnerRate.FSL := 'FSL1';
+        PartnerRate."Processing Status" := PartnerRate."Processing Status"::Pending;
+        PartnerRate.Insert();
+    end;
 
     [ErrorBehavior(ErrorBehavior::Collect)]
     procedure ProcessWithErrorCollect()

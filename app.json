@@ -2,7 +2,7 @@
   "id": "d8b782b9-01d7-447d-95da-91ea272abd40",
   "name": "Directions2025",
   "publisher": "Silviu Virlan",
-  "version": "1.0.0.1",
+  "version": "1.0.0.3",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -25,7 +25,7 @@
     "allowDownloadingSource": true,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "14.0",
+  "runtime": "15.0",
   "features": [
     "NoImplicitWith"
   ]

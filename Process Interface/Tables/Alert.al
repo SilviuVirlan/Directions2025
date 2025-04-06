@@ -33,6 +33,18 @@ table 70502 Alert
         }
     }
 
+    internal procedure AddDemoData()
+    var
+        Alert: Record Alert;
+    begin
+        Alert.CustomerNo := 'CUST001';
+        Alert.VendorNo := 'VEND001';
+        Alert.AlertId := 1;
+        Alert.AlertReceivingDate := 20250408D;
+        Alert."Processing Status" := Alert."Processing Status"::Pending;
+        Alert.Insert();
+    end;
+
     procedure SetStatusTo(NewStat: Enum ProcessingStatus)
     begin
         "Processing Status" := NewStat;

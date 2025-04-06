@@ -460,6 +460,13 @@ page 70502 PartnerRates
     {
         area(Processing)
         {
+            action(AddDemoData)
+            {
+                trigger OnAction()
+                begin
+                    Rec.AddDemoData();
+                end;
+            }
             action(Process)
             {
                 trigger OnAction()
@@ -483,6 +490,7 @@ page 70502 PartnerRates
         }
         area(Promoted)
         {
+            actionref(AddDemoData_Promoted; AddDemoData) { }
             actionref(Process_Promoted; Process) { }
             actionref(ResetStatus_Promoted; ResetStatus) { }
         }

@@ -12,6 +12,10 @@ page 70501 Alerts
         {
             repeater(General)
             {
+                field("Processing Status"; Rec."Processing Status")
+                {
+                    ToolTip = 'Specifies the value of the Processing Status field: Pending (just received), ErrorValidation (validation yielded errrors), ErrorProcessing (processing yielded errros), Validated (data received is valid), Processed (SO created)', Comment = '%';
+                }
                 field(CustomerNo; Rec.CustomerNo)
                 {
                     ToolTip = 'Specifies the value of the Customer No. field.', Comment = '%';
@@ -76,10 +80,6 @@ page 70501 Alerts
                 {
                     ToolTip = 'Specifies the value of the Order No. field.', Comment = '%';
                 }
-                field("Processing Status"; Rec."Processing Status")
-                {
-                    ToolTip = 'Specifies the value of the Processing Status field: Pending (just received), ErrorValidation (validation yielded errrors), ErrorProcessing (processing yielded errros), Validated (data received is valid), Processed (SO created)', Comment = '%';
-                }
             }
         }
     }
@@ -87,6 +87,13 @@ page 70501 Alerts
     {
         area(Processing)
         {
+            action(AddDemoData)
+            {
+                trigger OnAction()
+                begin
+                    Rec.AddDemoData();
+                end;
+            }
             action(Process)
             {
                 trigger OnAction()
@@ -109,6 +116,7 @@ page 70501 Alerts
         }
         area(Promoted)
         {
+            actionref(AddDemoData_Promoted; AddDemoData) { }
             actionref(Process_Promoted; Process) { }
             actionref(ResetStatus_Promoted; ResetStatus) { }
         }

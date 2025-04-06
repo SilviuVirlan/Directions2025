@@ -6,7 +6,7 @@ pageextension 70500 BusinessManagerRoleCenterExt extends "Business Manager Role 
         {
             group(RSMUSFlashGlobal)
             {
-                Caption = 'Directions 2025';
+                Caption = 'Directions 2025 - Processors';
                 ToolTip = 'Manage Directions 2025 entities, Order, Alerts, Partner Rates.';
 
                 action(Orders)
