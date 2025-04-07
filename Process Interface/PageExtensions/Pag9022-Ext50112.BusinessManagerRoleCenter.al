@@ -4,7 +4,7 @@ pageextension 70500 BusinessManagerRoleCenterExt extends "Business Manager Role 
     {
         addlast(sections)
         {
-            group(RSMUSFlashGlobal)
+            group(Directions)
             {
                 Caption = 'Directions 2025 - Processors';
                 ToolTip = 'Manage Directions 2025 entities, Order, Alerts, Partner Rates.';
@@ -17,7 +17,7 @@ pageextension 70500 BusinessManagerRoleCenterExt extends "Business Manager Role 
                     RunObject = page Orders;
                     ToolTip = 'Staging area for Orders received from 3rd party';
                 }
-                action(RSMUSFlashPartnerRates)
+                action(PartnerRates)
                 {
                     ApplicationArea = All;
                     Caption = 'Partner Rates';
@@ -25,7 +25,7 @@ pageextension 70500 BusinessManagerRoleCenterExt extends "Business Manager Role 
                     RunObject = page "PartnerRates";
                     ToolTip = 'Staging area for Partner Rates received from 3rd party';
                 }
-                action(RSMUSFlashAlerts)
+                action(Alerts)
                 {
                     ApplicationArea = All;
                     Caption = 'Alerts';
